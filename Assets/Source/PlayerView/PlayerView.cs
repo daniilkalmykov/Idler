@@ -1,22 +1,25 @@
+using System.Runtime.CompilerServices;
 using Source.MovementSystem;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.PlayerView
 {
     internal sealed class PlayerView : MonoBehaviour, IPlayerView
     {
         private IMovable _movable;
-        private Vector3 _target;
+        private Vector3? _target;
         
         private void Update()
         {
-            if (_movable == null || _target == default)
+            if (_movable == null || _target == null)
                 return;
 
-            transform.position = Vector3.MoveTowards(transform.position, _target, _movable.Speed * Time.deltaTime);
+            transform.position =
+                Vector3.MoveTowards(transform.position, _target.Value, _movable.Speed * Time.deltaTime);
 
             if (transform.position == _target)
-                _target = default;
+                _target = null;
         }
 
         public void Init(IMovable movable) => _movable = movable;

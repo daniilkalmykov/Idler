@@ -1,6 +1,8 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.InputSystem
 {
     internal class PlayerInput : MonoBehaviour, IInput

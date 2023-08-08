@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.MovementSystem
 {
     internal sealed class Movement : IMovable
