@@ -8,7 +8,7 @@ namespace Source.EnemyView
     {
         private Vector3 _target;
 
-        public void Init(Vector3 target)
+        public void SetTarget(Vector3 target)
         {
             _target = target;
         }
