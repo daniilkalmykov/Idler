@@ -3,7 +3,7 @@ using Source.EnemyView;
 using Source.MovementSystem;
 using UnityEngine;
 
-namespace Source.StateMachineSystem.EnemyStateMachine
+namespace Source.StateMachineSystem.EnemyStateMachine.States
 {
     internal sealed class MoveState : IState
     {
