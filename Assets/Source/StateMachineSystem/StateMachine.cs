@@ -2,34 +2,44 @@ using System;
 
 namespace Source.StateMachineSystem
 {
-    internal sealed class StateMachine
+    internal sealed class StateMachine : IStateMachine
     {
         public StateMachine(IState currentState)
         {
-            _currentState = currentState;
+            CurrentState = currentState;
         }
 
-        private IState _currentState;
+        public IState CurrentState { get; private set; }
 
-        private void Activate()
+        public void Activate()
         {
-            _currentState.Enter();
-        }
-        
-        private void Update()
-        {
-            _currentState?.Update();
+            CurrentState?.Enter();
         }
 
-        private void Transit(IState nextState)
+        public void Update()
+        {
+            CurrentState?.Update();
+        }
+
+        public void Deactivate()
+        {
+            CurrentState = null;
+        }
+
+        public void Transit(IState nextState)
         {
             if (nextState == null)
                 throw new ArgumentNullException();
             
-            _currentState?.Exit();
+            CurrentState?.Exit();
 
-            _currentState = nextState;
-            _currentState?.Enter();
+            CurrentState = nextState;
+            CurrentState?.Enter();
+        }
+
+        public void Reset(IState startState)
+        {
+            CurrentState = startState;
         }
     }
 }
