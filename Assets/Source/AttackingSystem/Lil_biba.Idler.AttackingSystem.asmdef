@@ -1,3 +1,4 @@
 {
-  "name": "Lil_biba.Idler.AttackingSystem"
+  "name": "Lil_biba.Idler.AttackingSystem",
+  "references":[ "GUID:c56012be03ff4dd4807469df1922224c" ]
 }

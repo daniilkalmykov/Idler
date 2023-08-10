@@ -1,3 +1,4 @@
+using System;
 using Source.HealthSystem;
 
 namespace Source.StateMachineSystem.EnemyStateMachine.Transitions
@@ -8,8 +9,8 @@ namespace Source.StateMachineSystem.EnemyStateMachine.Transitions
         
         public KillTransition(IState nextState, IHealth health)
         {
-            NextState = nextState;
-            _health = health;
+            NextState = nextState ?? throw new ArgumentNullException();
+            _health = health ?? throw new ArgumentNullException();
         }
 
         public IState NextState { get; }

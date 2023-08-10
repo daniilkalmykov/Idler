@@ -1,4 +1,5 @@
 using System;
+using Source.HealthSystem;
 
 namespace Source.AttackingSystem
 {
@@ -16,9 +17,10 @@ namespace Source.AttackingSystem
         public float Delay { get; }
         public bool CanAttack { get; private set; }
 
-        public void TryAttack()
+        public void TryAttack(IHealth health)
         {
             Attacked?.Invoke();
+            health.TryTakeDamage(Damage);
             
             CanAttack = false;
         }

@@ -1,4 +1,5 @@
 using System;
+using Source.HealthSystem;
 
 namespace Source.AttackingSystem
 {
@@ -10,7 +11,7 @@ namespace Source.AttackingSystem
         float Delay { get; }
         bool CanAttack { get; }
 
-        void TryAttack();
+        void TryAttack(IHealth health);
         void Activate();
         void Deactivate();
     }
