@@ -1,4 +1,4 @@
 {
   "name": "Lil_biba.Idler.StateMachineSystem",
-  "references":[ "GUID:652fc0b3d69d4adbadb96c37947ea98e", "GUID:152a985b78c149cd81ad1e02d4b80543", "GUID:8ec5367ccbf54cf0af0f545a1476b552" ]
+  "references":[ "GUID:652fc0b3d69d4adbadb96c37947ea98e", "GUID:152a985b78c149cd81ad1e02d4b80543", "GUID:8ec5367ccbf54cf0af0f545a1476b552", "GUID:c56012be03ff4dd4807469df1922224c" ]
 }
