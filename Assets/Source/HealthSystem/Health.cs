@@ -1,5 +1,7 @@
 using System;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.HealthSystem
 {
     internal sealed class Health : IHealth

@@ -22,5 +22,10 @@ namespace Source.EnemyView
 
             transform.position = Vector3.MoveTowards(transform.position, _target, movable.Speed * Time.deltaTime);
         }
+
+        public void TurnOff()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

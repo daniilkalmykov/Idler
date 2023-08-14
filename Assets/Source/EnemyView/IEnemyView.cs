@@ -7,5 +7,6 @@ namespace Source.EnemyView
     {
         void SetTarget(Vector3 target);
         void Move(IMovable movable);
+        void TurnOff();
     }
 }
