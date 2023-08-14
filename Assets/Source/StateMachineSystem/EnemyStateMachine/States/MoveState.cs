@@ -1,8 +1,10 @@
 using System;
+using System.Runtime.CompilerServices;
 using Source.EnemyView;
 using Source.MovementSystem;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.StateMachineSystem.EnemyStateMachine.States
 {
     internal sealed class MoveState : IState

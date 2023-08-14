@@ -1,6 +1,8 @@
 using System;
+using System.Runtime.CompilerServices;
 using Source.HealthSystem;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.AttackingSystem
 {
     internal sealed class Attacker : IAttacker

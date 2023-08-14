@@ -1,7 +1,9 @@
 using System;
+using System.Runtime.CompilerServices;
 using Source.MovementSystem;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Source.EnemyView
 {
     internal sealed class EnemyView : MonoBehaviour, IEnemyView

@@ -5,6 +5,5 @@ namespace Source.StateMachineSystem
         void Activate();
         void Update();
         void Deactivate();
-        void Reset(IState startState);
     }
 }

@@ -45,11 +45,6 @@ namespace Source.StateMachineSystem
             _currentState = null;
         }
 
-        public void Reset(IState startState)
-        {
-            _currentState = startState;
-        }
-
         private void Transit(IState nextState)
         {
             if (nextState == null)
