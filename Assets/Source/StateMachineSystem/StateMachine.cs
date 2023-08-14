@@ -1,45 +1,64 @@
 using System;
+using System.Collections.Generic;
 
 namespace Source.StateMachineSystem
 {
     internal sealed class StateMachine : IStateMachine
     {
-        public StateMachine(IState currentState)
-        {
-            CurrentState = currentState;
-        }
+        private readonly List<IState> _states;
+        
+        private IState _currentState;
 
-        public IState CurrentState { get; private set; }
-
-        public void Activate()
+        public StateMachine(List<IState> states)
         {
-            CurrentState?.Enter();
+            _states = states;
+            _currentState = _states[0];
         }
 
         public void Update()
         {
-            CurrentState?.Update();
+            if (_currentState == null)
+                return;
+
+            _currentState.Update();
+
+            if (_currentState.Transition.CanTransit() == false)
+                return;
+            
+            var index = _states.IndexOf(_currentState);
+
+            if (index == _states.Count - 1)
+                index = 0;
+            else
+                index++;
+
+            Transit(_states[index]);
+        }
+
+        public void Activate()
+        {
+            _currentState?.Enter();
         }
 
         public void Deactivate()
         {
-            CurrentState = null;
-        }
-
-        public void Transit(IState nextState)
-        {
-            if (nextState == null)
-                throw new ArgumentNullException();
-            
-            CurrentState?.Exit();
-
-            CurrentState = nextState;
-            CurrentState?.Enter();
+            _currentState = null;
         }
 
         public void Reset(IState startState)
         {
-            CurrentState = startState;
+            _currentState = startState;
+        }
+
+        private void Transit(IState nextState)
+        {
+            if (nextState == null)
+                throw new ArgumentNullException();
+            
+            _currentState?.Exit();
+
+            _currentState = nextState;
+            _currentState?.Enter();
         }
     }
 }
