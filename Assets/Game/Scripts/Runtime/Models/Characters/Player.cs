@@ -1,8 +1,10 @@
 using System;
+using System.Runtime.CompilerServices;
 using Game.Scripts.Runtime.Models.Input;
 using Game.Scripts.Runtime.Models.Movement;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Game.Scripts.Runtime.Models.Characters
 {
     internal sealed class Player : ICharacter
