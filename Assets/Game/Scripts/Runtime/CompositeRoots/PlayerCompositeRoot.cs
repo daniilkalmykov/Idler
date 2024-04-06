@@ -17,7 +17,7 @@ namespace Game.Scripts.Runtime.CompositeRoots
 
         private void Update()
         {
-            _character.OnUpdate();
+            _character?.OnUpdate();
         }
 
         [Inject]
