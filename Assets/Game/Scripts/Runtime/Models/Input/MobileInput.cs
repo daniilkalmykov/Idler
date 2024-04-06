@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Assembly-CSharp")]
 namespace Game.Scripts.Runtime.Models.Input
 {
     internal sealed class MobileInput : IInput
