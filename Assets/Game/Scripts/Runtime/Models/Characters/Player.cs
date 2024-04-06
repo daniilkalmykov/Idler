@@ -14,12 +14,13 @@ namespace Game.Scripts.Runtime.Models.Characters
 
         public Player(IInput input, IMovable movable)
         {
-            _input = input ?? throw new ArgumentNullException();
-            _movable = movable ?? throw new ArgumentNullException();
+            _input = input ?? throw new ArgumentNullException(nameof(input));
+            _movable = movable ?? throw new ArgumentNullException(nameof(movable));
         }
 
         public void OnUpdate()
         {
+            _input.OnUpdate();
             _movable.Move(new Vector3(_input.Horizontal, 0, _input.Vertical));
         }
     }

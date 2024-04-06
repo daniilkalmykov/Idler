@@ -8,7 +8,7 @@ namespace Game.Scripts.Runtime.App.DI
     {
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
-            containerBuilder.AddSingleton(typeof(MobileInput), typeof(IInput));
+            containerBuilder.AddSingleton(typeof(PCInput), typeof(IInput));
         }
     }
 }

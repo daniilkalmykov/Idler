@@ -1,3 +1,4 @@
+using System;
 using Game.Scripts.Runtime.Models.Characters;
 using Game.Scripts.Runtime.Models.Input;
 using Game.Scripts.Runtime.Models.Movement;
@@ -12,17 +13,20 @@ namespace Game.Scripts.Runtime.CompositeRoots
 
         private ICharacter _character;
         private IMovable _movable;
+        private IInput _pcInput;
 
         private void Update()
         {
-            _character?.OnUpdate();
+            _character.OnUpdate();
         }
 
         [Inject]
-        public void Compose(IInput input)
+        public void Construct(IInput input)
         {
+            _pcInput = input ?? throw new ArgumentNullException(nameof(input));
+            
             _movable = new TransformDirectionMovement(_speed, transform);
-            _character = new Player(input, _movable);
+            _character = new Player(_pcInput, _movable);
         }
     }
 }
